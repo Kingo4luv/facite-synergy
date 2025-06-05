@@ -1,0 +1,30 @@
+{
+  "name": "Facite Synergy - Real Estate, Roofing & Survey Services",
+  "short_name": "Facite Synergy",
+  "description": "Leading real estate, roofing solutions, and property survey services in Nigeria",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "categories": ["business", "real estate", "construction"],
+  "lang": "en-NG",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
