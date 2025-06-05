@@ -1,14 +1,97 @@
+'use client';
+
+import { useState } from 'react';
 import { Button } from './Button';
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+interface FormStatus {
+  type: 'idle' | 'loading' | 'success' | 'error';
+  message: string;
+}
+
 const ContactForm = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+  });
+  
+  const [status, setStatus] = useState<FormStatus>({
+    type: 'idle',
+    message: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted');
+    setStatus({ type: 'loading', message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message: 'Thank you for your message! We\'ll get back to you soon.',
+        });
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          message: '',
+        });
+      } else {
+        setStatus({
+          type: 'error',
+          message: result.error || 'Something went wrong. Please try again.',
+        });
+      }
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Network error. Please check your connection and try again.',
+      });
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="bg-gray-50 p-8 rounded-lg">
+      {/* Status Message */}
+      {status.type !== 'idle' && (
+        <div className={`mb-6 p-4 rounded-lg ${
+          status.type === 'success' 
+            ? 'bg-green-100 border border-green-300 text-green-700'
+            : status.type === 'error'
+            ? 'bg-red-100 border border-red-300 text-red-700'
+            : 'bg-blue-100 border border-blue-300 text-blue-700'
+        }`}>
+          {status.type === 'loading' ? 'Sending your message...' : status.message}
+        </div>
+      )}
+
       <div className="grid md:grid-cols-2 gap-6 mb-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -18,8 +101,11 @@ const ContactForm = () => {
             type="text"
             id="name"
             name="name"
+            value={formData.name}
+            onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            disabled={status.type === 'loading'}
+            className="w-full px-4 py-3 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
             placeholder="Your Name"
           />
         </div>
@@ -31,8 +117,11 @@ const ContactForm = () => {
             type="email"
             id="email"
             name="email"
+            value={formData.email}
+            onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            disabled={status.type === 'loading'}
+            className="w-full px-4 py-3 border text-gray-700 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
             placeholder="your@email.com"
           />
         </div>
@@ -45,7 +134,10 @@ const ContactForm = () => {
           type="tel"
           id="phone"
           name="phone"
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          value={formData.phone}
+          onChange={handleChange}
+          disabled={status.type === 'loading'}
+          className="w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
           placeholder="Your Phone Number"
         />
       </div>
@@ -57,8 +149,11 @@ const ContactForm = () => {
           id="message"
           name="message"
           rows={4}
+          value={formData.message}
+          onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          disabled={status.type === 'loading'}
+          className="w-full px-4 py-3 text-gray-700 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
           placeholder="Tell us about your project..."
         />
       </div>
@@ -66,8 +161,9 @@ const ContactForm = () => {
         type="submit"
         variant="primary"
         className="w-full"
+        disabled={status.type === 'loading'}
       >
-        Send Message
+        {status.type === 'loading' ? 'Sending...' : 'Send Message'}
       </Button>
     </form>
   );
