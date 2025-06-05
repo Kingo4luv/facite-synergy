@@ -32,14 +32,13 @@ const ServicesSection = () => {
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Services</h2>
-          <h3 className="text-2xl text-blue-900">What We Offer</h3>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div key={index} className="bg-white rounded-lg shadow-xl overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <div className="relative h-48 w-full">
                 <Image
                   src={service.image}
