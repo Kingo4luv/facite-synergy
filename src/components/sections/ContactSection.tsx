@@ -60,7 +60,6 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
-          <h3 className="text-2xl text-blue-900">Let&apos;s Talk</h3>
           <p className="text-lg text-gray-600 mt-4">
             Have a question or ready to get started? We&apos;d love to hear from you.
           </p>
