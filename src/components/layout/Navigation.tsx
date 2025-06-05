@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { HamburgerIcon, CloseIcon } from '../icons/index';
+import { HamburgerIcon, CloseIcon, FaciteSynergyLogo } from '../icons/index';
 
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,11 +23,15 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white  border-b border-gray-200 z-40">
+    <nav className="fixed top-0 w-full bg-white border-b border-gray-200 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold text-blue-900">
-            Facite Synergy
+          {/* Logo and Company Name */}
+          <div className="flex items-center space-x-3">
+            <FaciteSynergyLogo width={40} height={40} />
+            <div className="text-2xl font-bold text-blue-900">
+              Facite Synergy
+            </div>
           </div>
           
           {/* Desktop Navigation */}
@@ -62,8 +66,11 @@ const Navigation = () => {
       `}>
         <div className="p-6 h-full relative">
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-blue-100">
-            <div className="text-xl font-bold text-blue-900">
-              Facite Synergy
+            <div className="flex items-center space-x-3">
+              <FaciteSynergyLogo width={32} height={32} />
+              <div className="text-xl font-bold text-blue-900">
+                Facite Synergy
+              </div>
             </div>
             <button
               onClick={closeMobileMenu}
