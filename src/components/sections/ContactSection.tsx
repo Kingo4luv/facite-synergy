@@ -1,0 +1,106 @@
+import { PhoneIcon, EmailIcon, LocationIcon, TwitterIcon, FacebookIcon, PinterestIcon } from '../icons/index';
+import { ContactForm } from '../ui';
+
+interface ContactInfo {
+  icon: React.ComponentType<{ className?: string }>;
+  label: string;
+  value: string;
+}
+
+interface SocialLink {
+  icon: React.ComponentType<{ className?: string }>;
+  href: string;
+  label: string;
+}
+
+const ContactSection = () => {
+  const contactInfo: ContactInfo[] = [
+    {
+      icon: PhoneIcon,
+      label: 'Phone',
+      value: '07936041395'
+    },
+    {
+      icon: EmailIcon,
+      label: 'Email',
+      value: 'Facitesynergy@gmail.com'
+    },
+    {
+      icon: LocationIcon,
+      label: 'Office Address',
+      value: 'Nigeria'
+    }
+  ];
+
+  const socialLinks: SocialLink[] = [
+    {
+      icon: TwitterIcon,
+      href: '#',
+      label: 'Twitter'
+    },
+    {
+      icon: FacebookIcon,
+      href: '#',
+      label: 'Facebook'
+    },
+    {
+      icon: PinterestIcon,
+      href: '#',
+      label: 'Pinterest'
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
+          <h3 className="text-2xl text-blue-900">Let&apos;s Talk</h3>
+          <p className="text-lg text-gray-600 mt-4">
+            Have a question or ready to get started? We&apos;d love to hear from you.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          <div>
+            <div className="space-y-6">
+              {contactInfo.map((item, index) => (
+                <div key={index} className="flex items-center space-x-4">
+                  <div className="bg-blue-900 text-white p-3 rounded-lg">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">{item.label}</p>
+                    <p className="text-gray-600">{item.value}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <p className="font-semibold text-gray-900 mb-4">Follow us on social media</p>
+              <div className="flex space-x-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="bg-blue-900 text-white p-2 rounded-lg hover:bg-blue-800 transition-colors"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-5 h-5" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <ContactForm />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;
