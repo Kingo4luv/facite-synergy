@@ -1,0 +1,25 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with brand colors -->
+  <circle cx="256" cy="256" r="240" fill="#1e40af"/>
+  
+  <!-- House/Building representing real estate -->
+  <path d="M256 80 L380 160 L380 400 L340 400 L340 240 L172 240 L172 400 L132 400 L132 160 Z" fill="#ffffff" stroke="#f0f9ff" stroke-width="2"/>
+  
+  <!-- Roof triangle showing roofing expertise -->
+  <path d="M256 80 L380 160 L132 160 Z" fill="#f0f9ff" stroke="#e0e7ff" stroke-width="2"/>
+  
+  <!-- Survey compass element -->
+  <circle cx="256" cy="320" r="50" stroke="#10b981" stroke-width="8" fill="none"/>
+  
+  <!-- Compass needle - vertical -->
+  <path d="M256 280 L256 360" stroke="#059669" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Compass needle - horizontal -->
+  <path d="M216 320 L296 320" stroke="#059669" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Center dot -->
+  <circle cx="256" cy="320" r="8" fill="#059669"/>
+  
+  <!-- Company initials or logo mark -->
+  <text x="256" y="450" font-family="Arial, sans-serif" font-size="36" font-weight="bold" text-anchor="middle" fill="#ffffff">FS</text>
+</svg>
