@@ -22,7 +22,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50">
+    <nav className="fixed top-0 w-full bg-white/95  border-b border-gray-200 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold text-blue-900">
@@ -53,20 +53,13 @@ const Navigation = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-          onClick={closeMobileMenu}
-        />
-      )}
 
       {/* Mobile Menu Sidebar */}
       <div className={`
-        fixed top-0 right-0 h-full w-72 bg-white shadow-2xl border-l border-gray-200 transform transition-transform duration-300 ease-in-out z-50 md:hidden
+        fixed top-0 right-0 h-full w-full bg-white shadow-2xl border-l border-gray-200 transform transition-transform duration-300 ease-in-out z-50 md:hidden
         ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
-        <div className="p-6 h-full bg-white relative">
+        <div className="p-6 h-full relative">
           <div className="flex items-center justify-between mb-8 pb-4 border-b border-blue-100">
             <div className="text-xl font-bold text-blue-900">
               Facite Synergy
@@ -98,7 +91,7 @@ const Navigation = () => {
             <div className="space-y-3">
               <div className="flex items-center text-sm text-gray-600">
                 <span className="mr-2 text-blue-900">📱</span>
-                <span>07936041395</span>
+                <span>07036041395</span>
               </div>
               <div className="flex items-center text-sm text-gray-600">
                 <span className="mr-2 text-blue-900">✉️</span>

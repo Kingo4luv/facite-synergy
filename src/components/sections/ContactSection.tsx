@@ -18,7 +18,7 @@ const ContactSection = () => {
     {
       icon: PhoneIcon,
       label: 'Phone',
-      value: '07936041395'
+      value: '07036041395 / 09044143821'
     },
     {
       icon: EmailIcon,
@@ -27,8 +27,13 @@ const ContactSection = () => {
     },
     {
       icon: LocationIcon,
-      label: 'Office Address',
-      value: 'Nigeria'
+      label: 'Enugu Office',
+      value: '71 More House by Denten Street, Ogui Road, Enugu State'
+    },
+    {
+      icon: LocationIcon,
+      label: 'Head Office',
+      value: 'No. 24 Ebitu Ukiwe St. Jabi, Beta Foundation Plaza Jabi, Suite 313B Second Floor'
     }
   ];
 
