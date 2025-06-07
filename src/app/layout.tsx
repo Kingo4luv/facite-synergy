@@ -51,10 +51,11 @@ export const metadata: Metadata = {
     siteName: "Facite Synergy",
     images: [
       {
-        url: "/preview.png",
-        width: 1200,
-        height: 630,
+        url: "https://facitesynergy.com/preview.png",
+        width: 1536,
+        height: 1024,
         alt: "Facite Synergy - Real Estate, Roofing & Survey Services",
+        type: "image/png",
       },
     ],
     locale: "en_NG",
@@ -65,7 +66,9 @@ export const metadata: Metadata = {
     title: "Facite Synergy | Real Estate, Roofing & Survey Services",
     description:
       "Leading real estate, roofing solutions, and property survey services in Nigeria.",
-    images: ["/preview.png"],
+    images: ["https://facitesynergy.com/preview.png"],
+    creator: "@facitesynergy",
+    site: "@facitesynergy",
   },
   robots: {
     index: true,
@@ -95,6 +98,22 @@ export default function RootLayout({
         <meta name="theme-color" content="#1e40af" />
         <meta name="msapplication-TileColor" content="#1e40af" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Additional Open Graph tags for better compatibility */}
+        <meta property="og:image" content="https://facitesynergy.com/preview.png" />
+        <meta property="og:image:width" content="1536" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content="Facite Synergy - Real Estate, Roofing & Survey Services" />
+        
+        {/* Twitter Card tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@facitesynergy" />
+        <meta name="twitter:creator" content="@facitesynergy" />
+        <meta name="twitter:image" content="https://facitesynergy.com/preview.png" />
+        
+        {/* WhatsApp specific tags */}
+        <meta property="og:image:secure_url" content="https://facitesynergy.com/preview.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
