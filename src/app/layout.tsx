@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "Facite Synergy",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/preview.png",
         width: 1200,
         height: 630,
         alt: "Facite Synergy - Real Estate, Roofing & Survey Services",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: "Facite Synergy | Real Estate, Roofing & Survey Services",
     description:
       "Leading real estate, roofing solutions, and property survey services in Nigeria.",
-    images: ["/images/og-image.jpg"],
+    images: ["/preview.png"],
   },
   robots: {
     index: true,
