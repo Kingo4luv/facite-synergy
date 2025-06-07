@@ -1,4 +1,4 @@
-import { PhoneIcon, EmailIcon, LocationIcon, TwitterIcon, FacebookIcon, PinterestIcon } from '../icons/index';
+import { PhoneIcon, EmailIcon, LocationIcon, TwitterIcon, FacebookIcon, InstagramIcon } from '../icons/index';
 import { ContactForm } from '../ui';
 
 interface ContactInfo {
@@ -49,9 +49,9 @@ const ContactSection = () => {
       label: 'Facebook'
     },
     {
-      icon: PinterestIcon,
+      icon: InstagramIcon,
       href: '#',
-      label: 'Pinterest'
+      label: 'Instagram'
     }
   ];
 

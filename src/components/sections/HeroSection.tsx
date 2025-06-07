@@ -60,7 +60,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
+    <section id="home" className="relative py-24 lg:h-screen overflow-hidden">
       {/* Background Images Slider */}
       <div className="absolute inset-0">
         {services.map((service, index) => (
