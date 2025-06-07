@@ -28,8 +28,8 @@ export async function POST(request: NextRequest) {
     // In development, log the email instead of sending if no API key is provided
     if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === 'your_resend_api_key_here') {
       console.log('📧 Email would be sent (Development Mode):');
-      console.log('From: Contact Form <noreply@facitesynergy.com>');
-      console.log('To:', process.env.CONTACT_EMAIL || 'your-email@example.com');
+      console.log('From: Facite Synergy Contact Form <noreply@facitesynergy.com>');
+      console.log('To:', process.env.CONTACT_EMAIL || 'Facitesynergy@gmail.com');
       console.log('Subject: New Contact Form Submission from', name);
       console.log('Content:', { name, email, phone, message });
       
@@ -40,8 +40,8 @@ export async function POST(request: NextRequest) {
 
     // Send email using Resend (Production)
     const { error } = await resend.emails.send({
-      from: 'Contact Form <noreply@facitesynergy.com>', // You'll need to use a verified domain
-      to: [process.env.CONTACT_EMAIL || 'your-email@example.com'], // Your email address
+      from: 'Facite Synergy Contact Form <noreply@facitesynergy.com>', // Using your verified domain
+      to: [process.env.CONTACT_EMAIL || 'Facitesynergy@gmail.com'], // Your email address
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
     // Optional: Send confirmation email to customer
     if (process.env.SEND_CONFIRMATION_EMAIL === 'true') {
       await resend.emails.send({
-        from: 'Facite Synergy <noreply@yourdomain.com>',
+        from: 'Facite Synergy <noreply@facitesynergy.com>',
         to: [email],
         subject: 'Thank you for contacting Facite Synergy',
         html: `
