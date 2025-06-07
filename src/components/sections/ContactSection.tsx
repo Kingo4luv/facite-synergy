@@ -27,14 +27,14 @@ const ContactSection = () => {
     },
     {
       icon: LocationIcon,
-      label: 'Enugu Office',
-      value: '71 More House by Denten Street, Ogui Road, Enugu State'
+      label: 'Head Office',
+      value: 'No. 24 Ebitu Ukiwe St. Jabi, Beta Foundation Plaza Jabi, Suite 313B Second Floor'
     },
     {
       icon: LocationIcon,
-      label: 'Head Office',
-      value: 'No. 24 Ebitu Ukiwe St. Jabi, Beta Foundation Plaza Jabi, Suite 313B Second Floor'
-    }
+      label: 'Enugu Office',
+      value: '71 More House by Denten Street, Ogui Road, Enugu State'
+    },
   ];
 
   const socialLinks: SocialLink[] = [
