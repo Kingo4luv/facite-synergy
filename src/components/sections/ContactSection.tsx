@@ -1,4 +1,4 @@
-import { PhoneIcon, EmailIcon, LocationIcon, TwitterIcon, FacebookIcon, InstagramIcon } from '../icons/index';
+import { PhoneIcon, EmailIcon, LocationIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons/index';
 import { ContactForm } from '../ui';
 
 interface ContactInfo {
@@ -39,19 +39,19 @@ const ContactSection = () => {
 
   const socialLinks: SocialLink[] = [
     {
-      icon: TwitterIcon,
-      href: '#',
-      label: 'Twitter'
-    },
-    {
       icon: FacebookIcon,
-      href: '#',
+      href: 'https://www.facebook.com/facitesynergy',
       label: 'Facebook'
     },
     {
       icon: InstagramIcon,
-      href: '#',
+      href: 'https://www.instagram.com/facitesynergy',
       label: 'Instagram'
+    },
+    {
+      icon: TwitterIcon,
+      href: 'https://twitter.com/facitesynergy',
+      label: 'Twitter'
     }
   ];
 
@@ -88,6 +88,8 @@ const ContactSection = () => {
                   <a
                     key={index}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-blue-900 text-white p-2 rounded-lg hover:bg-blue-800 transition-colors"
                     aria-label={social.label}
                   >
