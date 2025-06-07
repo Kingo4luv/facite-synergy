@@ -1,5 +1,5 @@
 import { PhoneIcon, EmailIcon, LocationIcon, FacebookIcon, InstagramIcon, TwitterIcon } from '../icons/index';
-import { ContactForm } from '../ui';
+import { ContactForm, OfficeMap } from '../ui';
 
 interface ContactInfo {
   icon: React.ComponentType<{ className?: string }>;
@@ -103,6 +103,17 @@ const ContactSection = () => {
           <div>
             <ContactForm />
           </div>
+        </div>
+
+        {/* Office Locations Map */}
+        <div className="mt-16">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">Visit Our Offices</h3>
+            <p className="text-gray-600">
+              Find us at our convenient locations in Abuja and Enugu
+            </p>
+          </div>
+          <OfficeMap className="w-full" />
         </div>
       </div>
     </section>
