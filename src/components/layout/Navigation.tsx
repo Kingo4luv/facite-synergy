@@ -28,7 +28,7 @@ const Navigation = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo and Company Name */}
           <div className="flex items-center space-x-3">
-            <FaciteSynergyLogo width={40} height={40} />
+            {/* <FaciteSynergyLogo width={40} height={40} /> */}
             <div className="text-2xl font-bold text-blue-900">
               Facite Synergy
             </div>
