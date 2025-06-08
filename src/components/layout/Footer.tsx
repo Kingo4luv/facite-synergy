@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { FacebookIcon, InstagramIcon, TwitterIcon } from '../icons/index';
 
 const Footer = () => {
@@ -7,8 +8,17 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="text-2xl font-bold text-white mb-4">
-            Facite Synergy
+          <div className="flex justify-center items-center space-x-3 mb-4">
+            <Image 
+              src="/facite-synergy-logo-white.png" 
+              alt="Facite Synergy Logo" 
+              width={50} 
+              height={50}
+              className="object-contain"
+            />
+            <div className="text-2xl font-bold text-white">
+              Facite Synergy
+            </div>
           </div>
           <p className="text-gray-400 mb-6">
             Building Tomorrow, Today
