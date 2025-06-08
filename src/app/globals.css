@@ -29,7 +29,7 @@ body {
 .scroll-to-top-button {
   z-index: 2147483647 !important;
   position: fixed !important;
-  bottom: 2rem !important;
+  bottom: 6rem !important; /* Higher position to avoid Tawk.to */
   right: 2rem !important;
 }
 

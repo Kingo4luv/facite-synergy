@@ -37,14 +37,8 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="scroll-to-top-button fixed bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border-2 border-white"
+          className="scroll-to-top-button bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 border-2 border-white"
           aria-label="Scroll to top"
-          style={{ 
-            zIndex: 2147483647, // Maximum z-index value to ensure it's above Tawk.to
-            position: 'fixed',
-            bottom: '6rem', // Moved higher - 6rem instead of 2rem to be above Tawk.to
-            right: '2rem'
-          }}
         >
           <svg
             className="w-6 h-6"
