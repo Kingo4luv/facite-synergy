@@ -57,6 +57,10 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="py-20 bg-white">
+      {/* SEO meta tags for this section */}
+      <meta name="description" content="Contact Facite Synergy for real estate, roofing, and survey services. Offices in Abuja and Enugu. Professional consultation and free quotes available." />
+      <meta name="keywords" content="contact Facite Synergy, real estate consultation, roofing quotes, property survey consultation, Abuja office, Enugu office" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>

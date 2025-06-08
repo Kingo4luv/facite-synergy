@@ -31,6 +31,10 @@ const ServicesSection = () => {
 
   return (
     <section id="services" className="py-8 bg-gray-50">
+      {/* SEO meta tags for this section */}
+      <meta name="description" content="Professional real estate services, premium roofing solutions, and certified property survey services across Nigeria. Expert land sales, roof installations, and surveying." />
+      <meta name="keywords" content="real estate services Nigeria, roofing installation, property survey, land sales, roof tiles, surveying services" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Services</h2>

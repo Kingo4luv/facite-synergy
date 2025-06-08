@@ -7,6 +7,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 // import GallerySection from '@/components/sections/GallerySection';
 import ContactSection from '@/components/sections/ContactSection';
+import { ScrollToTop } from '@/components/ui';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       {/* <GallerySection /> */}
       <ContactSection />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

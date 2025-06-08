@@ -61,6 +61,10 @@ const HeroSection = () => {
 
   return (
     <section id="home" className="relative py-24 lg:h-screen overflow-hidden">
+      {/* SEO meta tags for this section */}
+      <meta name="description" content="Facite Synergy - Building Tomorrow, Today. Premier real estate, roofing solutions, and property survey services across Nigeria. Quality investments and professional installations." />
+      <meta name="keywords" content="Facite Synergy home, Nigerian real estate investment, premium roofing, property survey experts, building tomorrow today" />
+      
       {/* Background Images Slider */}
       <div className="absolute inset-0">
         {services.map((service, index) => (

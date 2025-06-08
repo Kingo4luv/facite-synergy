@@ -1,6 +1,10 @@
 const AboutSection = () => {
   return (
     <section id="about" className="py-20 bg-gray-50 relative overflow-hidden">
+      {/* SEO meta tags for this section */}
+      <meta name="description" content="Learn about Facite Synergy - a trusted real estate and roofing solutions provider in Nigeria, committed to quality, integrity, and customer satisfaction." />
+      <meta name="keywords" content="about Facite Synergy, Nigerian real estate company, roofing company Nigeria, property survey company" />
+      
       {/* Circular pattern background - full width and more visible */}
       <div className="absolute inset-0 opacity-25">
         <svg

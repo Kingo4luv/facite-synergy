@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Ensure scroll-to-top button is always visible above chat widgets */
+.scroll-to-top-button {
+  z-index: 2147483647 !important;
+  position: fixed !important;
+  bottom: 2rem !important;
+  right: 2rem !important;
+}
+
+/* Adjust Tawk.to widget z-index if needed */
+#tawk-bubble-container,
+.tawk-chat-widget,
+div[id*="tawkchat"],
+iframe[title*="chat"] {
+  z-index: 1000000000 !important;
+}
