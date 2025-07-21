@@ -33,10 +33,16 @@ interface ContentfulAsset {
   };
 }
 
+interface ContentfulRichTextNode {
+  nodeType: string;
+  value?: string;
+  content?: ContentfulRichTextNode[];
+}
+
 interface ContentfulRichText {
   nodeType: string;
-  data: any;
-  content: Array<any>;
+  data: Record<string, unknown>;
+  content: ContentfulRichTextNode[];
 }
 
 interface ContentfulProjectFields {
@@ -52,7 +58,7 @@ function extractPlainTextFromRichText(richText?: ContentfulRichText): string {
   if (!richText || !Array.isArray(richText.content)) return '';
   for (const node of richText.content) {
     if (node.nodeType === 'paragraph' && Array.isArray(node.content)) {
-      return node.content.map((child: any) => child.value).join(' ');
+      return node.content.map((child) => child.value ?? '').join(' ');
     }
   }
   return '';
