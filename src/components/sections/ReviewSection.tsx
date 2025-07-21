@@ -67,7 +67,7 @@ const reviews = [
 ];
 
 // Custom Arrow Components
-const Arrow = ({ className, style, onClick, direction }: { className?: string; style?: React.CSSProperties; onClick?: () => void; direction: 'left' | 'right' }) => (
+const Arrow = ({ style, onClick, direction }: { style?: React.CSSProperties; onClick?: () => void; direction: 'left' | 'right' }) => (
   <button
     className={`slick-arrow !flex items-center justify-center !bg-white !border !border-gray-300 !rounded-full !p-2 !shadow-lg !transition hover:!bg-gray-100 !w-10 !h-10 !z-20 ${direction === 'left' ? '!left-[-8px]' : '!right-[-8px]'} !top-1/2 !-translate-y-1/2`}
     style={{ ...style, boxShadow: '0 2px 8px rgba(0,0,0,0.08)', position: 'absolute' }}
