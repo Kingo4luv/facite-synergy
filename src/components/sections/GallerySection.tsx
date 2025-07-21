@@ -174,6 +174,21 @@ const GallerySection = () => {
     };
   }, [isModalOpen]);
 
+  // Skeleton loader component
+  const SkeletonCard = () => (
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden animate-pulse">
+      <div className="relative h-64 w-full bg-gray-200" />
+      <div className="p-6">
+        <div className="h-6 bg-gray-200 rounded w-2/3 mb-2" />
+        <div className="h-4 bg-gray-200 rounded w-1/2 mb-3" />
+        <div className="flex justify-between items-center text-sm text-gray-500">
+          <div className="h-4 bg-gray-200 rounded w-1/3" />
+          <div className="h-4 bg-gray-200 rounded w-1/4" />
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section id="gallery" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -204,74 +219,76 @@ const GallerySection = () => {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, index) => {
-            if (project.isVideo) {
-              console.log('Video asset:', {
-                url: project.image,
-                type: project.videoType,
-                title: project.title,
-              });
-            }
-            return (
-              <div
-                key={project.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
-                onClick={() => openModal(index)}
-              >
-                <div className="relative h-64 w-full">
-                  {project.isVideo ? (
-                    <video controls className="object-cover w-full h-full">
-                      <source src={project.image} type="video/mp4"/>
-                          Your browser does not support the video tag.
-                    </video>
-                  ) : (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                  )}
-                  <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      project.category === 'real-estate' 
-                        ? 'bg-green-100 text-green-800'
-                        : project.category === 'roofing'
-                        ? 'bg-blue-100 text-blue-800'
-                        : 'bg-purple-100 text-purple-800'
-                    }`}>
-                      {project.category === 'real-estate' ? 'Real Estate' : 
-                       project.category === 'roofing' ? 'Roofing' : 'Survey'}
-                    </span>
-                  </div>
-                  {/* View Project Overlay */}
-                  <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
-                    <div className="text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
-                      <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                      </svg>
+          {projects.length === 0
+            ? Array.from({ length: 6 }).map((_, idx) => <SkeletonCard key={idx} />)
+            : filteredProjects.map((project, index) => {
+                if (project.isVideo) {
+                  console.log('Video asset:', {
+                    url: project.image,
+                    type: project.videoType,
+                    title: project.title,
+                  });
+                }
+                return (
+                  <div
+                    key={project.id}
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                    onClick={() => openModal(index)}
+                  >
+                    <div className="relative h-64 w-full">
+                      {project.isVideo ? (
+                        <video controls className="object-cover w-full h-full">
+                          <source src={project.image} type="video/mp4"/>
+                              Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      )}
+                      <div className="absolute top-4 left-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          project.category === 'real-estate' 
+                            ? 'bg-green-100 text-green-800'
+                            : project.category === 'roofing'
+                            ? 'bg-blue-100 text-blue-800'
+                            : 'bg-purple-100 text-purple-800'
+                        }`}>
+                          {project.category === 'real-estate' ? 'Real Estate' : 
+                           project.category === 'roofing' ? 'Roofing' : 'Survey'}
+                        </span>
+                      </div>
+                      {/* View Project Overlay */}
+                      <div className="absolute inset-0 bg-black/0 hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                        <div className="text-white opacity-0 hover:opacity-100 transition-opacity duration-300">
+                          <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
+                      <p className="text-gray-600 mb-3">{project.description}</p>
+                      <div className="flex justify-between items-center text-sm text-gray-500">
+                        <span className="flex items-center">
+                          <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          {project.location}
+                        </span>
+                        <span>{project.date}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-3">{project.description}</p>
-                  <div className="flex justify-between items-center text-sm text-gray-500">
-                    <span className="flex items-center">
-                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      {project.location}
-                    </span>
-                    <span>{project.date}</span>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
         </div>
 
         {/* Modal */}
