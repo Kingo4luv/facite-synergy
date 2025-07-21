@@ -221,8 +221,8 @@ const GallerySection = () => {
                 <div className="relative h-64 w-full">
                   {project.isVideo ? (
                     <video controls className="object-cover w-full h-full">
-                      <source src={project.image} type={project.videoType} />
-                      Your browser does not support the video tag.
+                      <source src={project.image} type="video/mp4"/>
+                          Your browser does not support the video tag.
                     </video>
                   ) : (
                     <Image
@@ -319,7 +319,7 @@ const GallerySection = () => {
                 <div className="relative h-96 md:h-[600px]">
                   {filteredProjects[currentProjectIndex]?.isVideo ? (
                     <video controls className="object-cover w-full h-full">
-                      <source src={filteredProjects[currentProjectIndex]?.image} type={filteredProjects[currentProjectIndex]?.videoType} />
+                      <source src={filteredProjects[currentProjectIndex]?.image} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
                   ) : (
